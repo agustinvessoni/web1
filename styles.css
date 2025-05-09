@@ -1,147 +1,198 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     font-family: "Montserrat", sans-serif;
+    transition: background-color 0.3s ease;
 }
-.container-inicio{
-    background-image: url('./images/home.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    height: calc(100vh - 115px); 
-}
-.navbar{
-    background-color: #181a27 !important;
-    position: sticky !important;
-    top: 0;
-    z-index: 999;
-    border-bottom: 2px solid gray;
-}
-.logo-navbar{
+
+/* Navbar */
+.logo-navbar {
     width: 90px;
     height: 90px;
     margin-left: 40px;
     user-select: none;
 }
-.navbar .nav-item a{
-    color: #d9d9d9;
+
+.navbar {
+    position: sticky !important;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid rgb(136, 136, 136);
+}
+
+.navbar .nav-item a {
     text-decoration: none;
-    margin-right: 50px;
     font-size: 20px;
+    font-weight: 500;
 }
-.nav-item a:hover{
-    color: white;
+
+.navbar .nav-item {
+    margin-right: 30px;
 }
-.texto-inicio{
-    margin-top: 300px;
+
+.navbar-nav {
+    justify-content: center;
+    align-items: center;
 }
-.texto-inicio h1{
+
+/* Inicio */
+.container-inicio {
+    background-image: url('./images/home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    height: calc(100vh - 110px);
+}
+
+.texto-inicio h1 {
     font-size: 76px;
     font-weight: 400;
 }
-.texto-inicio h4{
+
+.texto-inicio h4 {
     margin-top: 20px;
     font-weight: 300;
 }
-.texto-inicio button{
+
+.texto-inicio button {
     margin-top: 30px;
     width: 130px;
     height: 50px;
     font-size: 20px;
 }
-.container-hab{
-    background-color: #ffff;
-    min-height: 100vh;
+
+/* Reservas habitaciones */
+.container-hab {
     padding: 30px;
 }
-.card{
+
+.card {
     border: 1px solid black !important;
+}
+
+.card img {
     user-select: none;
 }
-.cards{
+
+.cards {
     display: flex;
     margin-top: 70px;
     gap: 20px;
 }
+
 .card-body {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
+
 .precio-reserva {
     margin-top: auto;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
-.precio-reserva a{
+
+.precio-reserva a {
     width: 100%;
 }
-.info{
-    background-color: #ececec;
-    min-height: 100vh;
-}
-.galeria{
-    background-color: #ececec;
-}
-.carousel{
+
+/* Galeria */
+.carousel {
     user-select: none;
-    width: 100%;
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 100px;
 }
-.texto-carrusel{
-    border: 1px solid #ececec;
-    margin-top: 20px;
+
+/* Servicios */
+
+.titulo-servicios{
+    margin-bottom: 70px;
 }
-footer{
+/* Contacto */
+#formulario {
+    border: 1px solid rgb(163, 163, 163);
+    padding: 20px;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.info {
+    margin-bottom: 150px;
+}
+
+.redes a {
+    margin-right: 10px;
+}
+
+/* Footer */
+footer {
     background-color: rgba(19, 19, 19, 0.7) !important;
 }
-.logo-footer{
+
+.logo-footer {
     width: 100px;
     height: 100px;
     user-select: none;
+    margin-left: 20px;
 }
-hr{
-    width: 50%;
+
+#btnVolverArriba {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 18px;
 }
-.container {
-    border-top: 1px solid transparent;
+
+#btnVolverArriba:hover {
+    background-color: #333;
 }
-  
 
+@media (max-width: 991px) {
+    .navbar-nav {
+        align-items: start;
 
-
-@media (max-width: 991px){
-    .cards{
-        flex-direction: column;
     }
-    .card{
-        margin-top: 15px;
+    .nav-item{
+        margin-top: 20px;
+        margin-left: 20px;
     }
-    .navbar-toggler{
+    .navbar-toggler {
         border: none !important;
         margin-right: 50px;
     }
-    .navbar-toggler:focus{
-        outline: none;
-        box-shadow: none;
-    }
-    .nav-item{
-        margin-left: 50px;
-        margin-top: 20px;
-    }
-    .navbar-nav{
-        margin-bottom: 20px !important;
-    }
-    .mapa{
-        margin-bottom: 50px;
-    }
-}
 
-@media (max-width: 770px){
-    .redes{
-        margin-top: 20px;
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none !important;
+    }
+    .cards {
+        flex-direction: column;
+    }
+    .carousel {
+        user-select: none;
+        width: 100%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    #formulario{
+        margin-top: 50px;
     }
 }
