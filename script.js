@@ -20,46 +20,88 @@ const cambiarTema = () => {
 }
 
 
-// Validación de formulario
+// Validación de formularios de contacto y reserva.
 
 document.addEventListener('DOMContentLoaded', function () {
-    const formulario = document.getElementById('formulario');
+    // Formulario de contacto
+    const formularioContacto = document.getElementById('formulario');
+    if (formularioContacto) {
+        formularioContacto.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-    formulario.addEventListener('submit', function (e) {
-        e.preventDefault(); // Evita el envío si hay errores
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const consulta = document.getElementById('consulta').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
 
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const consulta = document.getElementById('consulta').value.trim();
-        const telefono = document.getElementById('telefono').value.trim();
+            let errores = [];
 
-        let errores = [];
+            // Validación del nombre
+            if (nombre === '') {
+                errores.push('El nombre es obligatorio.');
+            }
 
-        // Validación del nombre
-        if (nombre === '') {
-            errores.push('El nombre es obligatorio.');
-        }
+            // Validación del email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errores.push('El email no es válido.');
+            }
 
-        // Validación del email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            errores.push('El email no es válido.');
-        }
+            // Validación del teléfono
+            const telefonoRegex = /^[0-9]+$/;
+            if (!telefonoRegex.test(telefono)) {
+                errores.push('El teléfono debe contener solo números.');
+            }
 
-        // Valido que el teléfono tenga números
-        const telefonoRegex = /^[0-9]+$/;
-        if (!telefonoRegex.test(telefono)) {
-            errores.push('El teléfono debe contener solo números.');
-        }
+            if (errores.length > 0) {
+                alert(errores.join('\n'));
+            } else {
+                alert('Formulario enviado correctamente');
+                formularioContacto.reset();
+            }
+        });
+    }
 
-        if (errores.length > 0) {
-            alert(errores.join('\n'));
-        } else {
-            alert('Formulario enviado correctamente');
-            formulario.reset();
-        }
-    });
+    // Formulario de reservas
+    const formularioReservas = document.getElementById('formulario-reservas');
+    if (formularioReservas) {
+        formularioReservas.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombre2 = document.getElementById('nombre-reserva').value.trim();
+            const email2 = document.getElementById('email-reserva').value.trim();
+            const telefono2 = document.getElementById('telefono-reserva').value.trim();
+
+            let errores2 = [];
+
+            // Validación del nombre
+            if (nombre2 === '') {
+                errores2.push('El nombre es obligatorio.');
+            }
+
+            // Validación del email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email2)) {
+                errores2.push('El email no es válido.');
+            }
+
+            // Validación del teléfono
+            const telefonoRegex2 = /^[0-9]+$/;
+            if (!telefonoRegex2.test(telefono2)) {
+                errores2.push('El teléfono debe contener solo números.');
+            }
+
+            if (errores2.length > 0) {
+                alert(errores2.join('\n'));
+            } else {
+                alert('¡Gracias por elegirnos! Tu reserva ha sido confirmada exitosamente. Nos pondremos en contacto para más detalles.');
+                formularioReservas.reset();
+            }
+        });
+    }
+
 });
+
 
 // Scroll reveal, para agregar animacion al abrir página o navegar por secciones.
 
