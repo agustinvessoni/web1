@@ -5,6 +5,14 @@
     transition: background-color 0.3s ease;
 }
 
+#galeria, #servicios, #contacto {
+    scroll-margin-top: 150px;
+}
+#habitaciones{
+    scroll-margin-top: 50px;
+}
+
+
 /* Navbar */
 .logo-navbar {
     width: 90px;
@@ -102,20 +110,26 @@
 }
 
 /* Galeria */
+
 .carousel {
     user-select: none;
-    width: 90%;
+    width: 70%;
     justify-content: center;
     margin: 0 auto;
+}
+.carrusel-titulo{
     margin-top: 100px;
 }
 
 /* Servicios */
 
 .titulo-servicios{
+    margin-top: 100px;
     margin-bottom: 70px;
 }
+
 /* Contacto */
+
 #formulario {
     border: 1px solid rgb(163, 163, 163);
     padding: 20px;
@@ -186,6 +200,10 @@ footer {
     .cards {
         flex-direction: column;
     }
+    .card{
+        width: 80%;
+        margin: 0 auto;
+    }
     .carousel {
         user-select: none;
         width: 100%;
@@ -194,5 +212,9 @@ footer {
     }
     #formulario{
         margin-top: 50px;
+        width: 70%;
+    }
+    .titulo-servicios{
+        margin-top: 150px;
     }
 }
