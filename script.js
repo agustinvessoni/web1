@@ -1,3 +1,6 @@
+
+// Modo claro / oscuro
+
 const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");
     document.querySelector("#dl-icon").setAttribute("class", "bi bi-sun-fill");
@@ -16,6 +19,8 @@ const cambiarTema = () => {
     }
 }
 
+
+// Validación de formulario
 
 document.addEventListener('DOMContentLoaded', function () {
     const formulario = document.getElementById('formulario');
@@ -56,28 +61,37 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Scroll reveal, para agregar animacion al abrir página o navegar por secciones.
 
 window.sr = ScrollReveal();
-      
-sr.reveal('.container',{
-duration: 1500,
-origin: 'top',
-distance: '20px'   
+
+sr.reveal('.container', {
+    duration: 1500,
+    origin: 'top',
+    distance: '20px'
 });
 
 
 // Mostrar/ocultar el botón según el scroll
+
 window.onscroll = function () {
     const btn = document.getElementById("btnVolverArriba");
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-      btn.style.display = "block";
+        btn.style.display = "block";
     } else {
-      btn.style.display = "none";
+        btn.style.display = "none";
     }
-  };
-  
-  // Volver arriba cuando se hace click
-  document.getElementById("btnVolverArriba").addEventListener("click", function () {
+};
+
+// Volver arriba cuando se hace click
+document.getElementById("btnVolverArriba").addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-  
+});
+
+
+// El ancla de inicio sube por completo
+document.querySelector('#link-inicio').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
