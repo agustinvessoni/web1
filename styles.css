@@ -312,14 +312,15 @@ footer {
         margin-top: 20px;
         margin-left: 10px;
     }
+
+    .mapa{
+        width: 20%;
+    }
 }
 
 @media (max-width: 390px){
 
     .formulario{
         width: 100%;
-    }
-    .mapa{
-        width: 70%;
     }
 }
