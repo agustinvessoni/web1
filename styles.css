@@ -313,7 +313,7 @@ footer {
     .formulario{
         margin: 0 auto;
         margin-bottom: 50px;
-        width: 100%;
+        width: 100% !important;
     }
 }
 
