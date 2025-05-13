@@ -266,33 +266,61 @@ footer {
 
     /* Reservas */
 
-    .texto-inicio-reservas h1{
-        font-size: 36px;
-        font-weight: 600;
-        text-align: center;
-    }
-    .texto-inicio-reservas h4{
-        font-size: 20px;
-        font-weight: 500;
-        text-align: center;
-    }
     .ul-reserva li{
         margin: 0 auto;
     }
     #formulario-reservas{
         margin: 0 auto;
-        margin-bottom: 100px;
     }
 }
 
 @media (max-width: 767px){
+
+    .texto-inicio-reservas {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .texto-inicio-reservas h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .texto-inicio-reservas h4 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .inicio-reservas{
+        max-width: 100vh !important;
+    }
     
     .formulario{
         width: 90% !important;
         margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .btn-success{
+        margin-top: 0px;
     }
     .redes{
         margin-top: 20px;
         margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px){
+
+    .formulario{
+        width: 100%;
+    }
+
+    #btnVolverArriba{
+        margin-right: 20px;
     }
 }
