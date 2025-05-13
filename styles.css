@@ -314,13 +314,12 @@ footer {
     }
 }
 
-@media (max-width: 480px){
+@media (max-width: 390px){
 
     .formulario{
         width: 100%;
     }
-
-    #btnVolverArriba{
-        margin-right: 20px;
+    .mapa{
+        width: 90%;
     }
 }
