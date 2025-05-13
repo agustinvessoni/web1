@@ -300,11 +300,6 @@ footer {
         max-width: 100vh !important;
     }
     
-    .formulario{
-        width: 90% !important;
-        margin: 0 auto;
-        margin-bottom: 50px;
-    }
     .btn-success{
         margin-top: 0px;
     }
@@ -316,6 +311,8 @@ footer {
         width: 100%;
     }    
     .formulario{
+        margin: 0 auto;
+        margin-bottom: 50px;
         width: 100%;
     }
 }
