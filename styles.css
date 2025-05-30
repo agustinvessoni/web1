@@ -5,38 +5,6 @@
     transition: background-color 0.3s ease;
 }
 
-/* Reservas */
-
-.inicio-reservas {
-    background-image: url('./images/galeria-3.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    height: 100vh;
-}
-
-.texto-inicio-reservas h1 {
-    margin-top: 50px;
-    width: 80%;
-    font-size: 46px;
-    font-weight: 400;
-}
-
-.texto-inicio-reservas h4 {
-    margin-top: 50px;
-    width: 80%;
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-#formulario-reservas {
-    margin-bottom: 100px;
-}
-
 /* Anclas de navbar */
 #galeria,
 #servicios,
@@ -61,7 +29,7 @@
     position: sticky !important;
     top: 0;
     z-index: 999;
-    border-bottom: 2px solid rgb(136, 136, 136);
+    border-bottom: 1px solid rgb(136, 136, 136);
 }
 
 .navbar .nav-item a {
@@ -99,7 +67,7 @@
     align-items: center;
     justify-content: center;
     text-align: left;
-    height: calc(100vh - 110px);
+    min-height: calc(100vh - 110px);
 }
 
 .texto-inicio h1 {
@@ -204,7 +172,6 @@
     width: 100%;
 }
 
-/* Footer */
 footer {
     background-color: rgba(19, 19, 19, 0.7) !important;
 }
@@ -215,6 +182,7 @@ footer {
     user-select: none;
     margin-left: 20px;
 }
+
 
 #btnVolverArriba {
     display: none;
@@ -235,6 +203,7 @@ footer {
 #btnVolverArriba:hover {
     background-color: #333;
 }
+
 
 
 @media (max-width: 991px) {
@@ -283,33 +252,16 @@ footer {
         margin-top: 150px;
     }
 
-    .ul-reserva li {
-        margin: 0 auto;
-    }
-
-    #formulario-reservas {
-        margin: 0 auto;
-    }
-
-    .row.text-center {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
-    }
-
     .servicios {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        padding: 10px;
         text-align: center;
         height: 100%;
     }
 
     .servicios h4 {
-        min-height: 48px;
-        margin-bottom: 10px;
         font-size: 18px;
     }
 
@@ -318,42 +270,10 @@ footer {
         height: 200px;
         object-fit: cover;
     }
+
 }
 
 @media (max-width: 767px) {
-
-    .texto-inicio-reservas {
-        text-align: center;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .texto-inicio-reservas h1 {
-        font-size: 24px;
-        font-weight: 600;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .texto-inicio-reservas h4 {
-        font-size: 16px;
-        font-weight: 500;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .inicio-reservas {
-        max-width: 100vh !important;
-    }
-
-    .btn-success {
-        margin-top: 0px;
-    }
-
-    .redes {
-        margin-top: 20px;
-        margin-left: 10px;
-    }
 
     .formulario {
         margin: 0 auto;
@@ -361,20 +281,22 @@ footer {
         width: 100% !important;
     }
 
-    .row.text-center {
-        justify-content: center;
-    }
-
     .servicios {
-        flex: 0 0 30%;
+        margin-bottom: 15px;
     }
 
     .servicios h4 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .servicios img {
-        height: 150px;
+        width: auto;
+        height: auto;
+    }
+
+    .redes {
+        margin-left: 20px;
+        margin-top: 10px;
     }
 
 }
@@ -386,60 +308,4 @@ footer {
         height: 85px;
     }
 
-    #formulario-reservas {
-        width: 95%;
-        padding: 10px;
-        margin: 0 auto;
-        font-size: 14px;
-    }
-
-    #formulario-reservas h3 {
-        font-size: 18px;
-    }
-
-    #formulario-reservas label {
-        font-size: 13px;
-    }
-
-    #formulario-reservas input,
-    #formulario-reservas select {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    .btn {
-        width: 100%;
-        font-size: 15px;
-    }
-
-    .texto-inicio-reservas h1 {
-        padding: 10px;
-        font-size: 20px;
-    }
-
-    .texto-inicio-reservas h4 {
-        font-size: 14px;
-    }
-
-    #servicios .row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    #servicios .servicios {
-        width: 90%;
-        max-width: 400px;
-    }
-
-    #servicios img {
-        object-fit: cover;
-        width: 70%;
-        height: auto;
-    }
-
-    .servicios h4 {
-        font-size: 22px;
-    }
 }
