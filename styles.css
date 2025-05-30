@@ -169,7 +169,7 @@
 }
 
 .mapa {
-    width: 100%;
+    width: 90%;
 }
 
 footer {
@@ -269,6 +269,10 @@ footer {
         width: 100%;
         height: 200px;
         object-fit: cover;
+    }
+
+    .mapa {
+        width: 100%;
     }
 
 }
