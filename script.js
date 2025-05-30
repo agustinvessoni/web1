@@ -20,36 +20,6 @@ const cambiarTema = () => {
 }
 
 
-// Validación de formularios de contacto y reserva.
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Formulario de contacto
-    const formularioContacto = document.getElementById('formulario');
-    if (formularioContacto) {
-        formularioContacto.addEventListener('submit', function (e) {
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const consulta = document.getElementById('consulta').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-
-            let errores = [];
-
-            if (nombre === '') errores.push('El nombre es obligatorio.');
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) errores.push('El email no es válido.');
-
-            const telefonoRegex = /^[0-9]+$/;
-            if (!telefonoRegex.test(telefono)) errores.push('El teléfono debe contener solo números.');
-
-            if (errores.length > 0) {
-                e.preventDefault(); // Solo prevenimos el envío si hay errores
-                alert(errores.join('\n'));
-            }
-            // Si no hay errores, dejamos que se envíe normalmente para Formspree
-        });
-    }
-
     // Formulario de reservas
     const formularioReservas = document.getElementById('formulario-reservas');
     if (formularioReservas) {
@@ -75,7 +45,24 @@ document.addEventListener('DOMContentLoaded', function () {
             // Si no hay errores, dejamos que se envíe normalmente para Formspree
         });
     }
+
+
+    // Valido que se pueda reservar de la fecha actual en adelante
+    const inputIngreso = document.getElementById('fecha-ingreso');
+    const inputSalida = document.getElementById('fecha-salida');
+
+    if (inputIngreso && inputSalida) {
+        const hoy = new Date().toISOString().split('T')[0];
+        inputIngreso.min = hoy;
+        inputSalida.min = hoy;
+
+        inputIngreso.addEventListener('change', () => {
+            inputSalida.min = inputIngreso.value;
+        });
+    }
+
 });
+
 
 
 
