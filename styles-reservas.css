@@ -1,0 +1,123 @@
+.inicio-reservas {
+    background-image: url('./images/galeria-3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    min-height: 100vh;
+}
+
+.texto-inicio-reservas h1 {
+    margin-top: 50px;
+    width: 80%;
+    font-size: 46px;
+    font-weight: 400;
+}
+
+.texto-inicio-reservas h4 {
+    margin-top: 50px;
+    width: 80%;
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+#formulario-reservas {
+    margin-bottom: 100px;
+}
+
+
+@media (max-width: 991px) {
+
+    .ul-reserva li {
+        margin: 0 auto;
+    }
+
+    #formulario-reservas {
+        margin: 0 auto;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .texto-inicio-reservas {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .texto-inicio-reservas h1 {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .texto-inicio-reservas h4 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .inicio-reservas {
+        max-width: 100vh !important;
+    }
+
+    .btn-success {
+        margin-top: 0px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .texto-inicio-reservas h1 {
+        padding: 10px;
+        font-size: 26px;
+    }
+
+    .texto-inicio-reservas h4 {
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 390px) {
+
+    .texto-inicio-reservas h1 {
+        font-size: 18px;
+    }
+
+    .texto-inicio-reservas h4 {
+        font-size: 16px;
+    }
+
+    #formulario-reservas {
+        width: 95%;
+        padding: 10px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    #formulario-reservas h3 {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    #formulario-reservas label {
+        font-size: 13px;
+    }
+
+    #formulario-reservas input,
+    #formulario-reservas select {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+}
