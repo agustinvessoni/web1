@@ -20,6 +20,36 @@ const cambiarTema = () => {
 }
 
 
+// Validación de formularios de contacto y reserva.
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Formulario de contacto
+    const formularioContacto = document.getElementById('formulario');
+    if (formularioContacto) {
+        formularioContacto.addEventListener('submit', function (e) {
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const consulta = document.getElementById('consulta').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+
+            let errores = [];
+
+            if (nombre === '') errores.push('El nombre es obligatorio.');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) errores.push('El email no es válido.');
+
+            const telefonoRegex = /^[0-9]+$/;
+            if (!telefonoRegex.test(telefono)) errores.push('El teléfono debe contener solo números.');
+
+            if (errores.length > 0) {
+                e.preventDefault(); // Solo prevenimos el envío si hay errores
+                alert(errores.join('\n'));
+            }
+            // Si no hay errores, dejamos que se envíe normalmente para Formspree
+        });
+    }
+
     // Formulario de reservas
     const formularioReservas = document.getElementById('formulario-reservas');
     if (formularioReservas) {
