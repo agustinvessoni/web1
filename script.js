@@ -64,40 +64,63 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Formulario de reservas
 const formularioReservas = document.getElementById('formulario-reservas');
+
 if (formularioReservas) {
-    formularioReservas.addEventListener('submit', function (e) {
+    formularioReservas.addEventListener('submit', async function (e) {
+        e.preventDefault(); // SIEMPRE evitamos el envío por defecto
 
-        const nombre2 = document.getElementById('nombre-reserva').value.trim();
-        const email2 = document.getElementById('email-reserva').value.trim();
-        const telefono2 = document.getElementById('telefono-reserva').value.trim();
+        const nombre = document.getElementById('nombre-reserva').value.trim();
+        const email = document.getElementById('email-reserva').value.trim();
+        const telefono = document.getElementById('telefono-reserva').value.trim();
+        const habitacion = formularioReservas.querySelector('select[name="habitacion"]').value;
+        const fechaIngreso = document.getElementById('fecha-ingreso').value;
+        const fechaSalida = document.getElementById('fecha-salida').value;
+        const metodoPago = formularioReservas.querySelector('select[name="pago"]').value;
 
-        let errores2 = [];
+        let errores = [];
 
-        // Validación del nombre
-        if (nombre2 === '') {
-            errores2.push('El nombre es obligatorio.');
-        }
-
-        // Validación del email
+        if (nombre === '') errores.push('El nombre es obligatorio.');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email2)) {
-            errores2.push('El email no es válido.');
+        if (!emailRegex.test(email)) errores.push('El email no es válido.');
+        const telefonoRegex = /^[0-9]+$/;
+        if (!telefonoRegex.test(telefono)) errores.push('El teléfono debe contener solo números.');
+
+        if (errores.length > 0) {
+            alert(errores.join('\n'));
+            return;
         }
 
-        // Validación del teléfono
-        const telefonoRegex2 = /^[0-9]+$/;
-        if (!telefonoRegex2.test(telefono2)) {
-            errores2.push('El teléfono debe contener solo números.');
-        }
+        // Enviamos el formulario como JSON
+        try {
+            const response = await fetch("https://formspree.io/f/xovwaelo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nombre,
+                    email,
+                    telefono,
+                    habitacion,
+                    fecha_ingreso: fechaIngreso,
+                    fecha_salida: fechaSalida,
+                    pago: metodoPago
+                })
+            });
 
-        if (errores2.length > 0) {
-            e.preventDefault();
-            alert(errores2.join('\n'));
-        } else {
-            alert('¡Gracias por elegirnos! Tu reserva ha sido confirmada exitosamente. Nos pondremos en contacto para más detalles.');
+            if (response.ok) {
+                alert("¡Gracias por elegirnos! Tu reserva ha sido confirmada.");
+                formularioReservas.reset();
+            } else {
+                alert("Hubo un error al enviar el formulario. Intentalo de nuevo.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Error de red al intentar enviar la reserva.");
         }
     });
 }
+
 
 
 
