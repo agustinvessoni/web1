@@ -62,45 +62,43 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Formulario de reservas
-    const formularioReservas = document.getElementById('formulario-reservas');
-    if (formularioReservas) {
-        formularioReservas.addEventListener('submit', function (e) {
+// Formulario de reservas
+const formularioReservas = document.getElementById('formulario-reservas');
+if (formularioReservas) {
+    formularioReservas.addEventListener('submit', function (e) {
+
+        const nombre2 = document.getElementById('nombre-reserva').value.trim();
+        const email2 = document.getElementById('email-reserva').value.trim();
+        const telefono2 = document.getElementById('telefono-reserva').value.trim();
+
+        let errores2 = [];
+
+        // Validación del nombre
+        if (nombre2 === '') {
+            errores2.push('El nombre es obligatorio.');
+        }
+
+        // Validación del email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email2)) {
+            errores2.push('El email no es válido.');
+        }
+
+        // Validación del teléfono
+        const telefonoRegex2 = /^[0-9]+$/;
+        if (!telefonoRegex2.test(telefono2)) {
+            errores2.push('El teléfono debe contener solo números.');
+        }
+
+        if (errores2.length > 0) {
             e.preventDefault();
+            alert(errores2.join('\n'));
+        } else {
+            alert('¡Gracias por elegirnos! Tu reserva ha sido confirmada exitosamente. Nos pondremos en contacto para más detalles.');
+        }
+    });
+}
 
-            const nombre2 = document.getElementById('nombre-reserva').value.trim();
-            const email2 = document.getElementById('email-reserva').value.trim();
-            const telefono2 = document.getElementById('telefono-reserva').value.trim();
-
-            let errores2 = [];
-
-            // Validación del nombre
-            if (nombre2 === '') {
-                errores2.push('El nombre es obligatorio.');
-            }
-
-            // Validación del email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email2)) {
-                errores2.push('El email no es válido.');
-            }
-
-            // Validación del teléfono
-            const telefonoRegex2 = /^[0-9]+$/;
-            if (!telefonoRegex2.test(telefono2)) {
-                errores2.push('El teléfono debe contener solo números.');
-            }
-
-            if (errores2.length > 0) {
-                alert(errores2.join('\n'));
-            } else {
-                alert('¡Gracias por elegirnos! Tu reserva ha sido confirmada exitosamente. Nos pondremos en contacto para más detalles.');
-                formularioReservas.reset();
-            }
-        });
-    }
-
-});
 
 
 // Scroll reveal, para agregar animacion al abrir página o navegar por secciones.
