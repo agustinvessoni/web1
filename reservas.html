@@ -44,47 +44,55 @@
                     <h4 class="text-dark">Confort, tranquilidad y atención personalizada.</h4>
                 </div>
                 <div class="col-md-6">
-                    <form class="bg-body formulario" id="formulario-reservas" action="https://formspree.io/f/xovwaelo" method="post">
+                    <form class="bg-body formulario" id="formulario-reservas" action="https://formspree.io/f/xovwaelo" method="post" accept-charset="UTF-8">
                         <h3 class="mb-5">Formulario de reserva</h3>
+                    
                         <div class="form-group">
                             <label>Nombre completo</label>
-                            <input type="text" id="nombre-reserva" class="form-control" placeholder="Nombre">
+                            <input type="text" name="nombre" id="nombre-reserva" class="form-control" placeholder="Nombre" required>
                         </div>
+                    
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" id="email-reserva" class="form-control"
-                                placeholder="nombre@ejemplo.com">
+                            <input type="email" name="email" id="email-reserva" class="form-control" placeholder="nombre@ejemplo.com" required>
                         </div>
+                    
                         <div class="form-group">
                             <label>Teléfono</label>
-                            <input type="text" id="telefono-reserva" class="form-control" placeholder="Teléfono">
+                            <input type="text" name="telefono" id="telefono-reserva" class="form-control" placeholder="Teléfono" required>
                         </div>
+                    
                         <div class="form-group">
                             <label>Seleccionar habitación</label>
-                            <select class="form-select" aria-label="Default select example" required>
+                            <select name="habitacion" class="form-select" required>
                                 <option value="" selected disabled>Elija una opción...</option>
-                                <option value="1">Habitación estándar (Dos personas máximo)</option>
-                                <option value="2">Habitación familiar (Cuatro personas máximo)</option>
-                                <option value="3">Suite (Tres personas máximo)</option>
+                                <option value="Habitación individual">Habitación individual</option>
+                                <option value="Habitación estándar">Habitación estándar (Dos personas máximo)</option>
+                                <option value="Habitación familiar">Habitación familiar (Cuatro personas máximo)</option>
+                                <option value="Suite">Suite (Tres personas máximo)</option>
                             </select>
                         </div>
+                    
                         <div class="form-group mb-3">
                             <label>Fecha de ingreso</label>
-                            <input type="date" class="form-control" required>
+                            <input type="date" name="fecha_ingreso" id="fecha-ingreso" class="form-control" required>
                         </div>
+                    
                         <div class="form-group mb-3">
                             <label>Fecha de salida</label>
-                            <input type="date" class="form-control" required>
+                            <input type="date" name="fecha_salida" id="fecha-salida" class="form-control" required>
                         </div>
+                    
                         <div class="form-group">
                             <label>Método de pago</label>
-                            <select class="form-select" aria-label="Método de pago" required>
+                            <select name="pago" class="form-select" required>
                                 <option value="" selected disabled>Seleccione su método de pago</option>
-                                <option value="tarjeta">Tarjeta de crédito</option>
-                                <option value="transferencia">Transferencia bancaria</option>
-                                <option value="efectivo">Efectivo</option>
+                                <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                                <option value="Transferencia bancaria">Transferencia bancaria</option>
+                                <option value="Efectivo">Efectivo</option>
                             </select>
                         </div>
+                    
                         <button type="submit" class="btn btn-success mt-5">Confirmar reserva</button>
                     </form>
                 </div>
