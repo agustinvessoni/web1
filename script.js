@@ -27,8 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const formularioContacto = document.getElementById('formulario');
     if (formularioContacto) {
         formularioContacto.addEventListener('submit', function (e) {
-            e.preventDefault();
-
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
             const consulta = document.getElementById('consulta').value.trim();
@@ -36,50 +34,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
             let errores = [];
 
-            // Validación del nombre
-            if (nombre === '') {
-                errores.push('El nombre es obligatorio.');
-            }
+            if (nombre === '') errores.push('El nombre es obligatorio.');
 
-            // Validación del email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                errores.push('El email no es válido.');
-            }
+            if (!emailRegex.test(email)) errores.push('El email no es válido.');
 
-            // Validación del teléfono
             const telefonoRegex = /^[0-9]+$/;
-            if (!telefonoRegex.test(telefono)) {
-                errores.push('El teléfono debe contener solo números.');
-            }
+            if (!telefonoRegex.test(telefono)) errores.push('El teléfono debe contener solo números.');
 
             if (errores.length > 0) {
+                e.preventDefault(); // Solo prevenimos el envío si hay errores
                 alert(errores.join('\n'));
-            } else {
-                alert('Formulario enviado correctamente');
-                formularioContacto.reset();
             }
+            // Si no hay errores, dejamos que se envíe normalmente para Formspree
         });
     }
 
-formularioReservas.addEventListener('submit', function (e) {
-    const nombre = document.getElementById('nombre-reserva').value.trim();
-    const email = document.getElementById('email-reserva').value.trim();
-    const telefono = document.getElementById('telefono-reserva').value.trim();
+    // Formulario de reservas
+    const formularioReservas = document.getElementById('formulario-reservas');
+    if (formularioReservas) {
+        formularioReservas.addEventListener('submit', function (e) {
+            const nombre = document.getElementById('nombre-reserva').value.trim();
+            const email = document.getElementById('email-reserva').value.trim();
+            const telefono = document.getElementById('telefono-reserva').value.trim();
 
-    let errores = [];
+            let errores = [];
 
-    if (nombre === '') errores.push('El nombre es obligatorio.');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) errores.push('El email no es válido.');
-    const telefonoRegex = /^[0-9]+$/;
-    if (!telefonoRegex.test(telefono)) errores.push('El teléfono debe contener solo números.');
+            if (nombre === '') errores.push('El nombre es obligatorio.');
 
-    if (errores.length > 0) {
-        e.preventDefault(); // Solo lo prevenimos si hay errores
-        alert(errores.join('\n'));
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) errores.push('El email no es válido.');
+
+            const telefonoRegex = /^[0-9]+$/;
+            if (!telefonoRegex.test(telefono)) errores.push('El teléfono debe contener solo números.');
+
+            if (errores.length > 0) {
+                e.preventDefault(); // Solo prevenimos el envío si hay errores
+                alert(errores.join('\n'));
+            }
+            // Si no hay errores, dejamos que se envíe normalmente para Formspree
+        });
     }
-    // Si no hay errores, el form se envía solo, como Formspree espera
 });
 
 
