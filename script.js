@@ -23,6 +23,7 @@ const cambiarTema = () => {
 // Validación de formularios de contacto y reserva.
 
 document.addEventListener('DOMContentLoaded', function () {
+    
     // Formulario de contacto
     const formularioContacto = document.getElementById('formulario');
     if (formularioContacto) {
@@ -92,8 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
-
-
 
 
 
